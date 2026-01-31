@@ -15,13 +15,6 @@ async def main():
     await dp.start_polling(bot)
 
 
-if __name__ == '__main__':
-    try:
-        asyncio.run(main())
-    except KeyboardInterrupt:
-        print("Бот выключен")
-
-
 TELEGRAM_BOT_TOKEN = os.getenv("token")
 if not TELEGRAM_BOT_TOKEN:
     raise ValueError("TELEGRAM_BOT_TOKEN не установлен в переменных окружения!")
@@ -71,4 +64,3 @@ async def read_root():
 if __name__ == "__main__":
     print("Запуск FastAPI локально. Для работы Webhook нужен публичный URL (например, ngrok).")
     uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 8000)))
-
